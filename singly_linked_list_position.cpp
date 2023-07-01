@@ -13,16 +13,6 @@ class node
         this->data = data;
         this->next = NULL;
     }
-    ~node()
-    {
-        int value = this->data;
-        // memory free
-        if(this->next != NULL) {
-            delete this->next;
-            this->next = NULL;
-        }
-        cout << " memory is free for node with data " << value << endl;
-    }
 };
 
 void InsertAtHead(node* &head,int data)
@@ -105,6 +95,7 @@ void DeleteNode(int position,node* &head,node* &tail)
         if (curr == tail)
         {
             tail = prev;
+            curr->next = NULL;
             delete curr;
             tail->next = NULL;
             return;
@@ -140,8 +131,9 @@ int main()
 
     print(head);
 
-    DeleteNode(2,head,tail);
+    DeleteNode(3,head,tail);
     print(head);
+
     cout << "head: " << head->data << endl;
     cout << "tail: " << tail->data << endl;
     return 0;
