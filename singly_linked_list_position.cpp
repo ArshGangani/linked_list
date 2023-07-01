@@ -18,7 +18,7 @@ class node
         int value = this->data;
         // memory free
         if(this->next != NULL) {
-            delete next;
+            delete this->next;
             this->next = NULL;
         }
         cout << " memory is free for node with data " << value << endl;
@@ -140,7 +140,8 @@ int main()
 
     print(head);
 
-    DeleteNode(4,head,tail);
+    DeleteNode(2,head,tail);
+    print(head);
     cout << "head: " << head->data << endl;
     cout << "tail: " << tail->data << endl;
     return 0;
