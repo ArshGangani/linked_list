@@ -13,6 +13,16 @@ class node
         this->data = data;
         this->next = NULL;
     }
+    ~node()
+    {
+        int value = this->data;
+        // memory free
+        if(this->next != NULL) {
+            delete this->next;
+            this->next = NULL;
+        }
+        cout << " memory is free for node with data " << value << endl;
+    }
 };
 
 void InsertAtHead(node* &head,int data)
