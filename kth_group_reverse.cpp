@@ -50,3 +50,39 @@ Node* kReverse(Node* head, int k) {
 
     return prev;
 }
+
+
+
+void InsertAtHead(Node* &head,int data)
+{
+    Node* temp = new Node(data);
+    temp->next = head;
+    head = temp;
+}
+
+void print(Node* &head)
+{
+    Node* temp = head;
+    while(temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    Node* head=nullptr;
+    InsertAtHead(head,10);
+
+    InsertAtHead(head,20);
+
+    InsertAtHead(head,30);
+
+    InsertAtHead(head,40);
+    print(head);
+    head = kReverse(head,2);
+    print(head);
+    return 0;
+}
